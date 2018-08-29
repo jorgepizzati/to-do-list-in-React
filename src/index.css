@@ -16,7 +16,6 @@ main {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background: #d6d6d6;
 }
 
 header > h1,
@@ -30,15 +29,47 @@ footer > p {
 
 .task-list {
   width: 50%;
+  background: #d6d6d6;
+  border-radius: 10px 0 0 10px;
+}
+
+.task-list ul > li {
+  list-style-type: decimal;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .task-form {
   width: 50%;
+  background: #e4e4e4;
+  border-radius: 0 10px 10px 0;
+}
+
+input {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: #efefef;
+  border: .5px solid rgb(218, 218, 218);
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.button {
+  background: #000;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: .7;
 }
 
 .add-tasks {
-  /* background: #a1a8b2; */
   text-align: center;
+  padding: 10px 0 20px;
 }
 
 .delete-task {
@@ -46,4 +77,9 @@ footer > p {
   font-size: 16px;
   display: inline-block;
   font-weight: bold;
+  background: red;
+  padding: 0 5px;
+  margin-left: 10px;
+  color: #fff;
+  border-radius: 5px;
 }

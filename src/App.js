@@ -24,24 +24,27 @@ class App extends Component {
     event.preventDefault();
   }
 
-
+  _deleteHandler = (event) => {
+    // Create variable to store clicked element
+    const clicked = event.target;
+    // Go up the DOM tree to parent element
+    const parentNode = clicked.parentNode;
+    // Use parentNode's properties (id) to know which array value has to be deleted.
+    const parentNodeId = parentNode.id;
+    const taskList = [...this.state.taskList];
+    const newArray = taskList.filter(task =>  task !== parentNodeId);
+    this.setState ({ taskList:newArray });
+  }
 
   _renderTaskList = (tasks) => {
     const items = tasks.map((task, index) => {
-      return 
-        <li key={index}>{task} 
-          <span className="delete-task">x</span>
-        </li> 
+      // Assign dynamic ID Values to link DOM data to array. **To know which one to delete from array**
+      return <li id={task} key={index}>{task}<span onClick={this._deleteHandler} className="delete-task">&#10007;</span></li> 
     }) 
     return items;
   }
-  // _deleteTask = (tasks) => {
-  //   const newItems = tasks.filter(task => task {
-      
-  //   })
-    
-  // }
   
+
 
   render() {
     const tasks = this.state.taskList;
@@ -64,3 +67,4 @@ class App extends Component {
 }
 
 export default App;
+
